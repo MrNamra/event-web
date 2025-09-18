@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -61,8 +63,8 @@
                 @endphp
                 @foreach($events as $event)
                     <div class="event-card">
-                        <div class="event-img" style="background-image: url('{{ $event->banner_image }}');">
-                        </div>
+                        <a href="{{ route('event.register',$event->title) }}"><div class="event-img" style="background-image: url('/{{ $event->banner_image }}');">
+                        </div></a>
                         <div class="event-content">
                             <div class="event-date"><i class="far fa-calendar-alt"></i> {{ $event->start_data }}</div>
                             <h3 class="event-title">{{ $event->title }}</h3>
@@ -166,4 +168,4 @@
             </div>
         </div>
     </section>
-@endsection
+    @endsection

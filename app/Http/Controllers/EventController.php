@@ -21,7 +21,16 @@ class EventController extends Controller
 
     public function show($id)
     {
+        $event = Event::where('title', $id)->first();
+        $categories = $event ? $event->categories : [];
+        return view('events.event_register', compact('event','categories'));
+    }
+    
+    public function view_participants($id)
+    {
         $event = Event::findOrFail($id);
-        return view('events.show', compact('event'));
+        $participants = $event->participants->load('team');
+        // dd($participants);
+        return view('admin.view_participants', compact('event', 'participants'));
     }
 }

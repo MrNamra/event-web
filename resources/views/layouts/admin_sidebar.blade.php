@@ -44,6 +44,12 @@
                         <p>Event</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.event_member.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Our Team</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
